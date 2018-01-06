@@ -10,6 +10,9 @@
 #' @param col Color, or vector of colors of length equal to the levels of \code{series}.
 #' @param xlim Limits for the x axis. Defaults to the range of \code{x}, 
 #'    plus/minus \code{xmargin}
+#' @param ymax Maximum for the y axis. Leaving \code{NA} (the default) will calculate it 
+#'    automatically. Specify it manually if needed (for example, to create a slideshow of 
+#'    epicurves to be shown in succession).
 #' @param xlab Title for x axis
 #' @param ylab Title for y axis
 #' @param xaxt x axis type. Specifying \code{xaxt="n"} suppresses plotting of the x axis.
@@ -38,7 +41,7 @@
 #'
 #' @export
 epicurve <- function(x, series=NA, col="green", 
-    xlim=range(x, na.rm=TRUE)+xmargin*c(-1,1), xlab=NA, ylab=NA, 
+    xlim=range(x, na.rm=TRUE)+xmargin*c(-1,1), ymax=NA, xlab=NA, ylab=NA, 
     xaxt="s", yaxt="s", box=FALSE, xmargin = 2) {
   if (length(series)>1) {
     series <- factor(series)
@@ -48,10 +51,12 @@ epicurve <- function(x, series=NA, col="green",
   }
   
   ratio <- ((par("plt")[2]-par("plt")[1])*par("fin")[1])/((par("plt")[4]-par("plt")[3])*par("fin")[2])
-  ylimit <- ifelse(box,
-    (as.integer(diff(xlim)) + 1.5)/ratio + 0.5,
-    ceiling((max(rowSums(data))+2)/5)*5 + 0.5
-    )
+  if (is.na(ymax)) {
+    ylimit <- ifelse(box,
+      (as.integer(diff(xlim)) + 1.5)/ratio + 0.5,
+      ceiling((max(rowSums(data))+2)/5)*5 + 0.5
+      )
+  } else { ylimit <- ymax }
 
   plot(0, xaxs="i", yaxs="i", bty="l", xaxt="n", yaxt="n", type="n", 
     xlab=xlab, ylab=ylab, ylim=c(0.5, ylimit), las=2, 

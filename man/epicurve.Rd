@@ -5,8 +5,8 @@
 \title{Draw a classic style epidemic curve (with rectangles)}
 \usage{
 epicurve(x, series = NA, col = "green", xlim = range(x, na.rm = TRUE) +
-  xmargin * c(-1, 1), xlab = NA, ylab = NA, xaxt = "s", yaxt = "s",
-  box = FALSE, xmargin = 2)
+  xmargin * c(-1, 1), ymax = NA, xlab = NA, ylab = NA, xaxt = "s",
+  yaxt = "s", box = FALSE, xmargin = 2)
 }
 \arguments{
 \item{x}{Data vector of integers or 'Date' objects}
@@ -17,6 +17,10 @@ epicurve(x, series = NA, col = "green", xlim = range(x, na.rm = TRUE) +
 
 \item{xlim}{Limits for the x axis. Defaults to the range of \code{x}, 
 plus/minus \code{xmargin}}
+
+\item{ymax}{Maximum for the y axis. Leaving \code{NA} (the default) will calculate it 
+automatically. Specify it manually if needed (for example, to create a slideshow of 
+epicurves to be shown in succession).}
 
 \item{xlab}{Title for x axis}
 
