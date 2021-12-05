@@ -4,9 +4,19 @@
 \alias{epicurve}
 \title{Draw a classic style epidemic curve (with rectangles)}
 \usage{
-epicurve(x, series = NA, col = "green", xlim = range(x, na.rm = TRUE) +
-  xmargin * c(-1, 1), ymax = NA, xlab = NA, ylab = NA, xaxt = "s",
-  yaxt = "s", box = FALSE, xmargin = 2)
+epicurve(
+  x,
+  series = NA,
+  col = "green",
+  xlim = range(x, na.rm = TRUE) + xmargin * c(-1, 1),
+  ymax = NA,
+  xlab = NA,
+  ylab = NA,
+  xaxt = "s",
+  yaxt = "s",
+  box = FALSE,
+  xmargin = 2
+)
 }
 \arguments{
 \item{x}{Data vector of integers or 'Date' objects}

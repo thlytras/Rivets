@@ -4,8 +4,13 @@
 \alias{isoweek}
 \title{Calculate the ISO week & year for a Date}
 \usage{
-isoweek(x, type = "both_num", sep = "-", inv = FALSE,
-  colnames = c("isoyear", "isoweek"))
+isoweek(
+  x,
+  type = "both_num",
+  sep = "-",
+  inv = FALSE,
+  colnames = c("isoyear", "isoweek")
+)
 }
 \arguments{
 \item{x}{A vector of class \code{\link{Date}} (of length >=1)}

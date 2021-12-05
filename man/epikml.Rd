@@ -4,8 +4,17 @@
 \alias{epikml}
 \title{Plot geocoded cases in a KML file}
 \usage{
-epikml(x, y, by = NA, name = NA, info = NA, labelinfo = NA,
-  pin = "default", pin.type = NULL, file = NA)
+epikml(
+  x,
+  y,
+  by = NA,
+  name = NA,
+  info = NA,
+  labelinfo = NA,
+  pin = "default",
+  pin.type = NULL,
+  file = NA
+)
 }
 \arguments{
 \item{x}{A numeric vector of longitudes}
