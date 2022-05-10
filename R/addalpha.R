@@ -13,7 +13,7 @@
 #' addalpha(rainbow(8), 0.6)
 #'
 #' @export
-addAlpha <- function(x, alpha=1.0) {
+addalpha <- function(x, alpha=1.0) {
   r <- col2rgb(x, alpha=T)
   # Apply alpha
   r[4,] <- alpha*255

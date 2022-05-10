@@ -4,10 +4,14 @@
 \alias{piformat}
 \title{Pretty-printer for p-values}
 \usage{
-piformat(x, html = FALSE)
+piformat(x, html = FALSE, tb = TRUE)
 }
 \arguments{
 \item{x}{One or more color names (as a character vector)}
+
+\item{html}{Escape the < character with the &lt; character entity}
+
+\item{tb}{Omit the "p=" or "p<" part, e.g. if outputting to a table}
 }
 \value{
 A character vector of equal length to x, with formatted p-values
