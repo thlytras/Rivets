@@ -31,7 +31,7 @@ Different according to the function's \code{type} argument. If
    YYYYWW format. If \code{"week"} or \code{"year"}, only the week number or year is
    returned, respectively. If \code{"both_text"}, then a character vector of the same
    length as \code{x} is returned, containing both the year and week number, seperated
-   by \code{sep}, and inverted if \code{inv=TRUE}. Finally, if \code{type="matix"}, both
+   by \code{sep}, and inverted if \code{inv=TRUE}. Finally, if \code{type="matrix"}, both
    year and week numbers are returned in a two-column matrix, with the columns named as
    in \code{colnames}.
 }

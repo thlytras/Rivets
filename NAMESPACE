@@ -3,6 +3,7 @@
 export(addalpha)
 export(epicurve)
 export(epikml)
+export(getCoef)
 export(isoweek)
 export(isoweekStart)
 export(ma)
