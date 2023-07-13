@@ -11,7 +11,7 @@ isoweekStart(x)
 }
 \value{
 A vector of class \code{\link{Date}} and length equal to \code{x}, containing the 
-  start date (first Monday) of each ISO week.
+  start date (first Monday) of each ISO week. \code{NA} (with a warning) if ISO week is invalid.
 }
 \description{
 This function takes a vector of ISO week numbers (of the form YYYYWW) and returns a Date 
