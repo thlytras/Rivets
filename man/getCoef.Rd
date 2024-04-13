@@ -7,9 +7,9 @@
 getCoef(m, par)
 }
 \arguments{
-\item{m}{A vector of class \code{\link{Date}} (of length >=1)}
+\item{m}{A regression model (of class 'lm','glm','lmerMod','glmerMod' or 'coxph')}
 
-\item{par}{A matrix (or data.frame) specifying the parameter combinations. See Details.}
+\item{par}{A matrix (or data.frame) specifying the parameter combinations.}
 }
 \value{
 A data.frame with three columns: \code{est}, \code{lo}, \code{hi} providing 
@@ -25,13 +25,7 @@ A data.frame with three columns: \code{est}, \code{lo}, \code{hi} providing
 This function generates point estimates and 95% Confidence Intervals from a 
 regression model, for any combination of model parameters.
 }
-\details{
-This function calculates the week number according to ISO 8601. Note that
-   dates near the start or end of a given year may belong to the previous or next
-   year respectively, thus the year needs to be calculated too.
-}
 \examples{
-isoweek(Sys.Date())
 mydata <- read.csv("https://stats.idre.ucla.edu/stat/data/binary.csv")
 mylogit <- glm(admit ~ gre + gpa + rank, data = mydata, family = "binomial")
 pars <- data.frame(gpa=c(2,2,3), rank=c(3,4,4))

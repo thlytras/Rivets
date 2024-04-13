@@ -3,12 +3,8 @@
 #' This function generates point estimates and 95% Confidence Intervals from a 
 #' regression model, for any combination of model parameters.
 #'
-#' @param m A vector of class \code{\link{Date}} (of length >=1)
-#' @param par A matrix (or data.frame) specifying the parameter combinations. See Details.
-#'
-#' @details This function calculates the week number according to ISO 8601. Note that
-#'    dates near the start or end of a given year may belong to the previous or next
-#'    year respectively, thus the year needs to be calculated too.
+#' @param m A regression model (of class 'lm','glm','lmerMod','glmerMod' or 'coxph')
+#' @param par A matrix (or data.frame) specifying the parameter combinations.
 #'
 #' @return A data.frame with three columns: \code{est}, \code{lo}, \code{hi} providing 
 #'    the point estimate and lower/upper limits of the 95% Confidence Interval, for each 
@@ -20,7 +16,6 @@
 #'    fixed-effects part is considered) and 'coxph' (from package \code{survival})
 #'
 #' @examples
-#' isoweek(Sys.Date())
 #' mydata <- read.csv("https://stats.idre.ucla.edu/stat/data/binary.csv")
 #' mylogit <- glm(admit ~ gre + gpa + rank, data = mydata, family = "binomial")
 #' pars <- data.frame(gpa=c(2,2,3), rank=c(3,4,4))
