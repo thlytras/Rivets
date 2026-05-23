@@ -13,7 +13,10 @@
 #' 
 #'    The function supports objects of class 'lm' and 'glm', 'lmerMod' and 'glmerMod' 
 #'    (mixed-effects models from package \code{lme4}, for which only the 
-#'    fixed-effects part is considered) and 'coxph' (from package \code{survival})
+#'    fixed-effects part is considered) and 'coxph' (from package \code{survival}).
+#'    It also supports objects of class 'mipo' (pooled results from package 
+#'    \code{mice}) created by pooling together regression models from 
+#'    multiply imputed datasets.
 #'
 #' @examples
 #' mydata <- read.csv("https://stats.idre.ucla.edu/stat/data/binary.csv")
@@ -24,6 +27,11 @@
 getCI <- function(m, intercept=FALSE, prob=0.95) {
   cf <- coef(summary(m))[,1:2]
   if (inherits(m, "coxph")) cf <- coef(summary(m))[,c(1,3)]
+  if (inherits(m, "mipo")) {
+    cf <- m$pooled[,c("estimate","t")]
+    rownames(cf) <- m$pooled$term
+    cf$t <- sqrt(cf$t)
+  }
   if (!intercept & !inherits(m, "coxph")) cf <- cf[-1,,drop=FALSE]
   res <- as.data.frame.matrix(as.matrix(cf) %*% rbind(1, qnorm((1-prob)/2)*c(0, 1, -1)))
   colnames(res) <- c("est", "lo", "hi")
